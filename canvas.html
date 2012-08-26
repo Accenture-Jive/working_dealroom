@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org" />
+<link type="text/css" href="stylesheets/jquery-ui-1.8.16.custom.css" rel="stylesheet" /> 
+<style type="text/css">
+
+/*Reset*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ font: inherit;
+ vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+ display: block;
+}
+
+#footer{
+	clear: both;
+	height: 28px;
+	width: 100%;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: #658AC3;
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	bottom: 0px;
+	font-size: 9px;
+	font-weight: bold;
+	text-align:center;
+	font-family: Verdana, Geneva, Arial, sans-serif
+} 
+body {
+ line-height: 1;
+}
+ol, ul {
+ list-style: none;
+}
+blockquote, q {
+ quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+ content: '';
+ content: none;
+}
+table {
+ border-collapse: collapse;
+ border-spacing: 0;
+ /*border-collapse: seperate;*/
+}
+/*Reset Ends*/
+
+/*Jive style*/
+
+html, body { font-family : "Helvetica Neue",Helvetica,Arial,sans-serif; font-size:11px}
+a:link, a:visited { color:#658AC3}
+a:hover {text-decoration:none}
+
+/* tables */ /* add to table - table-layout:fixed; */
+table.data-grid, table.crud, table.banner {  border:1px solid #222; margin:20px; box-shadow:0 0 5px #888}
+table.data-grid {width:96%;table-layout:fixed;}
+table.data-grid thead tr th, table.crud thead tr th, table.banner thead tr th{ color:white; padding:8px 15px 8px 8px; text-align:left; font-weight:bold}
+table.data-grid tbody tr td{ padding:2px; border-top:1px solid #222; cursor:default; text-align:left; overflow: hidden; position:relative;overflow: hidden; text-overflow:ellipsis; white-space:nowrap;} /* for overflow -- text-overflow:ellipsis; white-space:nowrap; */
+table.data-grid tbody tr:hover { background:#FFFF00}/*#F8F8D2*/
+table.data-grid tbody tr.active { background:#FFFF00; color:black}
+table.data-grid tbody tr.active a:link, table.data-grid tbody tr.active a:visited { color:#658AC3}
+//table.crud tbody td { padding:5px; vertical-align:top}
+//table.crud tbody td.button_row{ 
+//text-align:center; vertical-align:center; margin: 1em 0; padding:0.3em;}
+table.crud thead, table.data-grid thead tr th, table.data-grid tfoot tr th {
+	background-color: #12378B;/*#658AC3;*/
+	border: 1px solid #222;
+}
+
+div.infoMsg, div.infoMsg2
+{
+	display:none;
+	font-weight:bold;
+}
+
+table.infoPager {
+	border:0px;
+}
+
+.showmsg{
+      display:block;
+      color:red;
+}
+.hidemsg{
+      display:none;
+      color:red;
+}
+
+table.banner {
+	background-color: #12378B;
+	border: 1px solid #222;
+}
+table.data-grid thead tr .header {
+	background-image: url(images/bg.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.data-grid thead tr .headerSortUp {
+	background-image: url(images/asc.png);
+}
+table.data-grid thead tr .headerSortDown {
+	background-image: url(images/desc.png);
+}
+table.data-grid thead tr .headerSortDown, table.data-grid thead tr .headerSortUp {
+background-color: #12378B;
+}
+
+/* TD Background data in Canvas */
+td.noDiscuss {
+	background-image: url(images/discuss_no.png);
+	/*no-repeat center center ; 
+	background-repeat: no-repeat;
+	background-position: center center;
+    position:relative; *//*this is the key*/
+}
+td.Discuss {
+	background-image: url(images/discuss_yes.png);
+	/*no-repeat center center ; 
+	background-repeat: no-repeat;
+	background-position: center center;
+    position:relative;*/ /*this is the key*/
+}
+
+td.updateDays{
+	background: url(images/updatedays.png);
+}
+
+td.updateMins{
+	background-image: url(images/updatemins.png);
+}
+td.Severity1{
+	background-image: url(images/1critical.png);
+}
+td.Severity2{
+	background-image: url(images/Red_Flag.png); no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */ 
+}
+td.Severity3{
+	background-image: url(images/3medium.png);
+}
+td.Severity4{
+	background-image: url(images/Blue_Flag.png); no-repeat center center ; 
+	background-repeat: no-repeat;
+	background-position: center center;
+    position:relative; /*this is the key*/
+}
+td.prob2,td.updateDays,td.Discuss, td.noDiscuss, td.updateMins, td.Severity1, td.Severity2, td.Severity3
+{
+	background-repeat: no-repeat;
+	background-position: right center;
+    position:relative; /*this is the key*/
+ 
+}
+.mmlib_table {
+    width: 100%;
+    font: bold 11px "Helvetica Neue", Helvetica, Verdana, "Trebuchet MS";
+}
+td.img3 { 
+    background: transparent url(images/Age.jpg) no-repeat right center; 
+}
+td.prob1 { 
+    background: transparent url(images/red_circle.jpg) no-repeat center center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */ 
+}
+td.prob2 { 
+    background: transparent url(images/yellow_circle.jpg) no-repeat center center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */ 
+}
+td.prob3 { 
+    background: transparent url(images/blue_circle.jpg) no-repeat center center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */ 
+}
+td.prob4 { 
+    background: transparent url(images/green_circle.jpg) no-repeat center center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */ 
+}
+/* TD Background data in Canvas ends */
+
+a:link, a:visited { color:black}
+a:hover {text-decoration:none}
+
+.banner a:link, .banner a:visited{ color: white; font-weight:bold}
+.banner a:hover, .banner a.active:link, .banner a.active:visited {color: #ffff00; text-decoration:none}
+
+
+input, textarea, select { width:300px; padding:5px;}
+input, select {height:25px; vertical-align:top; text-align:left;}
+input.pagedisplay {width:60px; height:11px; font-size:10px; padding-left: 0pt; padding-top: 5pt; padding-bottom: 0pt; padding-right: 0pt; align:center; vertical-align:center;}
+
+textarea { height:100px}
+select {width:250px;}
+select.discussGroup {width:400px;}
+select.pagesize {width:40px;}
+
+table.crud tbody td { padding:8px; vertical-align:top}
+
+#pager img {margin: 0px 0px 0px 0px;}
+/* Button Styles - Start */
+.buttonRow {float: left; clear: both; margin: 1em 0; } /*single*/
+
+.button
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10px;
+	padding-left: 10px;
+	
+	font-size: 9pt;
+	font-weight:bold;
+	text-decoration: none;
+	color: white;
+	background-color: #12378B;
+	
+	text-align: center;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;	
+}
+
+.button:hover
+{
+background-color: #658AC3;
+}
+.buttonSingle { width: 6em; float: left; clear: none; } /*holder*/
+.buttonStyle1 { color:#33f; background-color: #ccf; border:3px outset #009;  }
+.buttonStyle3 { font-size: 1em; padding: 0.10em; color:#009;}
+table.crud tbody td.button_row{ 
+text-align:center; vertical-align:center; margin: 1em 0; padding:0.3em;}
+/* Button Styles - End */
+
+div.menu
+{
+	background-color: #12378B;
+	border: 0px solid #222;
+	padding: 5px 0 0 5px;
+}
+div.menu a:link, div.menu a:visited{ display: inline-block; padding: 10px 20px; text-decoration: none; color: #12378B; font-weight:bold}
+div.menu a:hover, div.menu a.active:link, div.menu a.active:visited { background: #E7E7F7; color: #12378B}
+
+.banner
+{
+padding: 0 0 0 0;
+}
+/* Jive Style ends */
+
+/*Chrom Style - Top Menu */
+
+.chromestyle{
+width: 99%;
+font-weight: bold;
+}
+
+.chromestyle:after{ /*Add margin between menu and rest of content in Firefox*/
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+
+.chromestyle ul{
+border: 1px solid #BBB;
+width: 100%;
+background: url(../images/chromebg2.gif) center center repeat-x; /*THEME CHANGE HERE*/
+padding: 4px 0;
+margin: 0;
+text-align: center; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle ul li{
+display: inline;
+}
+
+.chromestyle ul li a{
+color: #494949;
+padding: 4px 7px;
+margin: 0;
+text-decoration: none;
+border-right: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+}
+
+.chromestyle ul li a:hover, .chromestyle ul li a.selected{ /*script dynamically adds a class of "selected" to the current active menu item*/
+background: url(../images/chromebg2-over.gif) center center repeat-x; /*THEME CHANGE HERE*/
+}
+
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+background-color: white;
+width: 200px;
+visibility: hidden;
+}
+
+.dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+font-weight: bold;
+color: black;
+}
+
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #EBF7FF;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheets/formulaire-css3.css" media="screen" title="bbxcss" />  
+  <title>My Opportunities - Canvas</title>
+<!--<title>Opportunities - Canvas</title>-->
+</head>
+<!-- Other functionalities: Pagination, Sorting, Form for Discussion, Posting -->
+<body>
+
+<div id="LoginScreen" style="display:none">
+<form id="loginForm" name="loginForm" class="loginFormClass">
+	<h1>Login - Siebel</h1>
+	<p>
+		<label for="uname">Username</label>
+		<input id="uname" name="uname" type="text" />
+	</p>
+	<p>
+		<label for="pword">Password</label>
+		<input id="pword" name="pword" type="password" />
+	</p>
+	<p>
+		<a class="submit" id="loginSiebel">Login</a>
+	</p>
+	<div id="loginStatus">
+	</div>
+</form>
+</div>
+
+<!-- Placing the entire Canvas View in DIV (login form is introduced)-->
+<div id="CanvasView" style="display:none">
+
+<!-- Welcome Banner -->
+<table class="banner" width="96%">
+	<thead>
+		<tr>
+		<th width="25%">Welcome, <b><span id="userID"></span></b> (<a id="logOut" href="#">Logout</a>)</th>
+		<th width="40%" align="center">
+		<form align="right"><!-- <img alt="List Opportunities" src="images/list.png" /> --><a class="displayList active" href="#" title="List Opportunities">List Opportunities</a><span>  |  </span><!-- <img alt="Create New Opportunity" src="images/add.png"/> --><a class="create" href="#" title="Create New Opportunity">Create New Opportunity</a></form>
+		</th>
+		<th width="35%">
+		<!-- Pagination of the fetched records -->
+		<div id="pager" align="right" class="pager" style="display:none">
+			<form align="right">
+				<img src="images/first.png" class="first" style="padding-left: 0pt; padding-top: 3pt; padding-bottom: 0pt; padding-right: 0pt"/>
+				<img src="images/prev.png" class="prev" style="padding-left: 0pt; padding-top: 3pt; padding-bottom: 0pt; padding-right: 0pt"/>
+				<input type="text" class="pagedisplay" disabled="disabled"/>
+				<img src="images/next.png" class="next" style="padding-left: 0pt; padding-top: 3pt; padding-bottom: 0pt; padding-right: 0pt"/>
+				<img src="images/last.png" class="last" style="padding-left: 0pt; padding-top: 3pt; padding-bottom: 0pt; padding-right: 0pt"/>
+				
+				<select class="pagesize" style="font-size:10px; padding-left: 0pt; padding-top: 3pt; padding-bottom: 0pt; padding-right: 0pt">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option selected="selected" value="15">15</option>
+					<option value="20">20</option>
+				</select><span style="font-size:11px; padding-left: 1pt; padding-top: 0pt; padding-bottom: 0pt; padding-right: 4pt"> items per page</span>
+			</form>
+		</div>
+		</th>
+		</tr>
+	</thead>
+</table>
+
+<!-- Records Display table & Pages -->
+<div id="displayRecord"> 
+	<table id="xmlTable" class="data-grid">
+		<thead>
+		  <tr>
+			<th>Opportunity Name</th>
+			<th>Account</th>
+			<th>Category</th>
+			<th>Probability %</th>
+			<th>Currency</th>
+			<th>Potential Revenue</th>
+            <th>Description</th>
+			<!-- <th>Created</th> -->
+            <th>Updated</th>
+			<th>Age</th>
+			<th>Priority</th>
+			<th>Discuss</th>
+			<th>Actions</th>
+		  </tr>
+		</thead>
+		<tbody id="TableBody">
+		  <!-- Placeholder for the fetched records to be displayed -->
+		</tbody>
+	</table>
+</div>
+
+
+<!-- Bottom pane in Oppty List screen -->
+
+<!-- View/Edit Canvas -->
+<table id="canvas" class="crud" style="display:none">
+    <thead>
+      <tr>
+         <th colspan="5"><span id="canvasHead"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+	 <tr>
+ 		<td>Opportunity Name </td><td><input type="text"  style="width:280px;height:12.5px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;" id="srNumber" disabled maxlength="100"/></td>
+		<td>Account</td>
+		<!--<td><input type="text" id="account" disabled maxlength="100"/></td>	-->
+		<td>
+ 		<input type="text" id="account" style="width:280px;height:12.5px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;"/>
+		</td>
+ 	  <td></td></tr>
+	  <tr>
+ 	    <td>Probability</td><td><input type="text"  style="width:280px;height:12.5px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;" id="probability"  maxlength="2" onkeypress="return onlyNumbers(event);"/></td>
+		<td>Category</td>
+		<td>
+ 		<select id="srType" style="width:290px;height:24px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;">
+		  <option>Data Center</option>
+		  <option>Laptop</option>
+		  <option>Linux</option>
+		  <option>Printers</option>
+		  <option>Storage</option>
+		  <option>Virtual Machine</option>
+		  <option>Windows</option>
+		</select>
+		</td>
+	 <td></td> </tr>
+	  <tr>
+	    <td>Potential Revenue</td><td><input type="text"  style="width:280px;height:12.5px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;" id="revenue"  onkeypress="return onlyNumbers(event);" maxlength="15"/></td>
+		<td>Currency code</td>
+		<td>
+		<select id="ccode" style="width:290px;height:24px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;">
+		  <option>USD</option>
+		  <option>USD</option>
+		  <option>GBP</option>
+		  <option>YEN</option>
+		  <option>EUR</option>
+		</select>
+		</td>
+	 <td></td> </tr>
+	  <tr>
+		<td>Description</td><td><input type="text"  style="width:280px;height:12.5px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;" id="desc"  maxlength="40"/></td>
+		<td>Sales Stage</td><td><select id="status" style="width:290px;height:24px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;">
+		  <option>Data Entry</option>
+		  <option>Submitted</option>
+		  <option>Approved</option>
+		  <option>Declined</option>
+		</select>
+		</td>		
+	<td></td>  </tr>
+	  <tr>
+		<td>Priority</td>
+		<td><input style="align:left;padding:0 5px 0 0;width:19px;vertical-align: baseline;position: relative;top: 3px;margin: 0 3px 0 0;line-height:inherit;font-size:100%;font-family:inherit;" type="checkbox" id="priority" name="priority" value="Priority" maxlength="1"/></td>
+		<td rowspan="4">Long Description</td>
+		<td rowspan="4"><textarea id="longDescr" STYLE="width:280px;height:100px;line-height:inherit;font-size:100%;font-family:inherit;" maxlength="400"></textarea></td>		
+	<td></td>  </tr>
+	
+	<tr>
+		<td>Age</td><td><span id="age"></span></td>
+	<td></td></tr>
+	
+	<!-- <tr>
+		<td>Created</td><td><span id="creation"></span></td>
+	</tr> -->
+	  <tr>
+		<td>Updated</td><td><span id="lastUpdate"></span></td>
+ <td></td> </tr>	
+  	  <!-- <td><!-- <a href="#">Go to discussion</a></td> -->
+	  <tr><td colspan="4"></td></tr>
+<tr>
+	  <td class="button_row" colspan="4"><button id="viewDisplay">Edit</button><button id="editDisplay">Update</button><span>  </span><button id="cancel">Cancel</button></td>
+	<td></td>  </tr>
+    </tbody>
+</table>
+<!-- Discussion form -->
+<div id="discussSR">
+  <table id="discussTable" class="crud" style="display:none">
+    <thead>
+      <tr>
+        <th colspan="3"><span id="discussHead"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+	  <tr>
+		<td>Group</td>
+		<td>
+		<select id="discussGroup" style="width:290px;height:24px;align:bottom">
+		</select><span id="fetching">Fetching group information...</span>
+		</td>
+	  <td></td></tr>
+	  <tr>
+		<td>Topic Name</td><td><span id="discussSRprefix" style="display:none"></span><input type="text" id="discussTopic"/></td>
+	 <td></td> </tr>
+	  <tr>
+		<td>Message</td><td><textarea name="discussMessage" id="discussMessage"></textarea></td>
+	 <td></td> </tr>	  
+	  <tr>	  
+	  <td colspan="2" align="center">
+	  <button id="submitDiscussion">Post Message</button><span>  </span><button id="cancelDiscussion">Cancel</button>
+	  </td>
+	 <td></td> </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- End of Bottom pane -->
+
+<!--Create Table, which has all the options enabled -->
+<div id="createRecord">
+  <table id="createTable" class="crud" style="display:none"> <!-- for testing, removed  -->
+    <thead>
+      <tr>
+        <th colspan="5"><span id="createHead"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+	  <tr>
+		<td><div>Opportunity Name<span style="color:red;">*</span></div></td><td><input type="text" style="width:280px;height:12.5px;line-height:inherit;font-size:100%;font-family:inherit;" id="srNumber2"  maxlength="100" onkeypress="return onlyChars(event);"/><br/><span id="msgSr" class="hidemsg" style="font-family:Calibri;font-size:12.5px;"><span style="color:red;">*</span>Opportunity Name Is Mandatory.</span></td>
+		<td>Account</td>
+		<td>
+		<select id="account2" style="width:290px;height:24px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;">
+		   <option>Northern California Cable Company</option>
+		  <option>Satellite America</option>
+		  <option>View TV</option>
+		</select>
+		</td><td></td>
+	  </tr>
+	  <tr>
+	    <td>Probability</td><td><input type="text" style="width:280px;height:12.5px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;" id="probability2" title="Enter Numeric values Only" maxlength="2" onkeypress="return onlyNumbers(event);"/></td>
+		<td>Category</td>
+		<td>
+		<select id="srType2" style="width:290px;height:24px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;" >
+		  <option>Data Center</option>
+		  <option>Laptop</option>
+		  <option>Linux</option>
+		  <option>Printers</option>
+		  <option>Storage</option>
+		  <option>Virtual Machine</option>
+		  <option>Windows</option>
+		</select>
+		</td>
+		<td></td>
+	  </tr>
+	  
+	  <tr>
+	  <td>Potential Revenue</td>
+		<td>
+			<select id="ccode2" style="width:55px;height:24px;align:bottom;line-height:inherit;font-size:100%;font-family:inherit;">
+			  <option>USD</option>
+			  <option>GBP</option>
+			  <option>YEN</option>
+			  <option>EUR</option>
+			</select>
+			<input type="text" style="width:225px;height:12px;align:bottom;float:right;line-height:inherit;font-size:100%;font-family:inherit;" id="revenue2" title="Enter Numeric values Only" onkeypress="return onlyNumbers(event);" maxlength="15"/>
+		</td>
+		<td rowspan="4">Long Description</td>
+		<td rowspan="4"><textarea id="longDesc2" style="width:280px;line-height:inherit;font-size:100%;font-family:inherit;" maxlength="400"></textarea></td>
+		<td></td></tr>
+	  <tr>
+		<td>Description</td><td><input type="text" style="width:280px;height:12.5px;line-height:inherit;font-size:100%;font-family:inherit;" id="desc2"  maxlength="40"/></td>
+	  <td></td></tr>
+	  <tr>
+		<td>Priority</td>
+		<td><input style="align:left;padding:0 5px 0 0;width:19px;vertical-align: baseline;position: relative;top: 3px;margin: 0 3px 0 0;line-height:inherit;font-size:100%;font-family:inherit;" type="checkbox" id="priority2" name="priority" value="Priority" maxlength="1" /></td>
+				
+	<td></td>  </tr>
+  	  <tr> <td colspan="4"></td></tr>
+	  <tr>
+ <td colspan="4" align="center" class="button_row">
+	  <button id="submitCreate">Submit</button><span>  </span><button id="resetCreate">Reset</button><span>  </span><button id="cancelCreate">Cancel</button>
+	  </td>
+	<td></td>  </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Refer Oppty to colleague -->
+<table class="crud" id="ReferPage" style="display:none">
+	<thead>
+	  <tr>
+		<th colspan="3">Refer Opportunity to a Colleague</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<tr><td>To</td><td> <select id="referList" style="width:290px;height:24px;align:bottom"></select></td></tr>
+		<tr><td>Subject</td><td><input type="text" id="referSub"/></td><td></td></tr>
+		<tr><td>Message</td><td><textarea id="referMsg" rows="5"></textarea></td></tr>
+		<tr><td class="button_row" colspan="2"><button id="postMsg">Post Message</button><span>  </span><button id="cancelMsg">Cancel</button>
+		</td>
+		</tr>
+	</tbody>
+</table>
+
+</div> <!--Ending Canvas View DIV-->
+<!--Information Messages -- Placeholder -->
+<table class="infoPager" width="100%">
+	<tr>
+	<td><div id="infoMsg"></div><div id="infoMsg2"></div><div id="infoMsg3"></div><div id="infoMsg4"></div><div id="infoMsg5"></div><div id="infoMsg6"></div><div id="infoMsg7"></div><div id="infoMsg8"></div><div id="infoMsg9"></div><div id="infoMsg10"></div><div id="infoMsg11"></div></td>
+	</tr>
+</table>
+
+<div id="footer">&copy; Accenture 2011</div>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/jive.js"></script>
+<script type="text/javascript" src="javascripts/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.tablesorter.pager.js"></script>
+<script type="text/javascript" src="javascripts/jquery.xml2json.js"></script>
+<script type="text/javascript" src="javascripts/tiny_mce.js"></script>
+<script type="text/javascript">
+function onlyNumbers(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+  if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+  return false;
+  return true;
+}
+function onlyChars(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+  if (charCode == 39)
+  return false;
+  return true;
+}
+
+// Initialize TinyMCE with the new plugin and listbox
+tinyMCE.init({
+    mode : "exact",
+    elements : "discussMessage",
+    theme : "advanced",
+    skin : "o2k7",
+    theme_advanced_buttons1 : "bold,italic,underline,separator,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,undo,redo,link,unlink,separator,formatselect,fontselect,fontsizeselect",
+    theme_advanced_buttons2 : "",
+    theme_advanced_buttons3 : "",
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_toolbar_align : "left",
+    theme_advanced_statusbar_location : ""
+});
+
+</script>
+</body>
+</html>

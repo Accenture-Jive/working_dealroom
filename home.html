@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org" />
+<!--Jive.css-->
+<style type="text/css">
+
+/*Reset*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ font: inherit;
+ vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+ display: block;
+}
+body {
+ line-height: 1;
+}
+ol, ul {
+ list-style: none;
+}
+blockquote, q {
+ quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+ content: '';
+ content: none;
+}
+table {
+ border-collapse: collapse;
+ border-spacing: 0;
+ /*border-collapse: seperate;*/
+}
+/*Reset Ends*/
+
+/*Jive style*/
+
+html, body { font-family : "Helvetica Neue",Helvetica,Arial,sans-serif; font-size:7.5pt}
+
+a:link, a:visited { color:#658AC3}
+a:hover {text-decoration:none}
+
+/* tables */ /* add to table - table-layout:fixed; */
+table.data-grid, table.crud, table.banner {  border:1px solid #222; margin:20px; box-shadow:0 0 5px #888}
+table.data-grid {width:90%}
+table.data-grid thead tr th, table.crud thead tr th, table.banner thead tr th{ color:white; padding:8px 15px 8px 8px; text-align:left; font-weight:bold}
+table.data-grid tbody tr td{ padding:2px; border-top:1px solid #222; cursor:default; text-align:left; overflow: hidden; position:relative;} /* for overflow -- text-overflow:ellipsis; white-space:nowrap; */
+table.data-grid tbody tr:hover { background:#FFFF00}
+table.data-grid tbody tr.active { background:#FFFF00; color:black}
+table.data-grid tbody tr.active a:link, table.data-grid tbody tr.active a:visited { color:#658AC3}
+table.crud tbody td { padding:5px; vertical-align:top}
+table.crud tbody td.button_row{ 
+text-align:center; vertical-align:center; margin: 1em 0; padding:0.3em;}
+table.crud thead, table.data-grid thead tr th, table.data-grid tfoot tr th {
+	background-color: #12378B;
+	border: 1px solid #222;
+}
+
+table.data-grid thead tr .header {
+	background-image: url(images/bg.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+
+td.noDiscuss {
+	background-image: url(images/discuss_no.png);no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */
+}
+td.Discuss {
+	background-image: url(images/discuss_yes.png);no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */
+}
+
+td.updateDays{
+	background-image: url(images/updatedays.png);
+}
+
+td.updateMins{
+	background-image: url(images/updatemins.png);
+}
+
+td.infoSR{
+	background-image: url(images/info.png);no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */ 
+}
+td.Severity1{
+	background-image: url(images/1critical.png);
+}
+td.Severity2{
+	background-image: url(images/Red_Flag.png); no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */
+}
+td.Severity3{
+	background-image: url(images/3medium.png);
+}
+td.Severity4{
+	background-image: url(images/Blue_Flag.png); no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */
+}
+
+td.referSR{
+	background-image: url(images/refer.png); no-repeat left center; 
+    padding-left: 18px; /* width of feed icon plus 2px spacing */
+}
+
+/* adding td images */
+
+td.img1 { 
+    background: transparent url(images/img1.png);
+}
+td.img2 { 
+    background: transparent url(images/img2.jpg);
+}
+td.img3 { 
+    background: transparent url(images/Age.jpg);
+}
+td.img4 { 
+    background: transparent url(images/img4.bmp);
+}
+td.img5 { 
+    background: transparent url(images/img5.jpg); 
+}
+td.img6 { 
+    background: transparent url(images/img6.png);
+}
+td.prob1 { 
+    background: transparent url(images/red_circle.jpg);
+}
+td.prob2 { 
+    background: transparent url(images/yellow_circle.jpg);
+}
+td.prob3 { 
+    background: transparent url(images/blue_circle.jpg);
+}
+td.prob4 { 
+    background: transparent url(images/green_circle.jpg);
+}
+
+/* end td images adding */
+
+.button
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10px;
+	padding-left: 10px;
+	
+	font-size: 9pt;
+	font-weight:bold;
+	text-decoration: none;
+	color: white;
+	background-color: #12378B;
+	
+	text-align: center;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;	
+}
+
+.button:hover
+{
+background-color: #658AC3;
+}
+
+textarea.referMsg
+{
+	height:100px;
+}
+input, textarea, select { width:300px; padding:5px;}
+input, select {height:25px; vertical-align:top; text-align:left;}
+
+td.noDiscuss, td.Discuss,td.prob1,td.prob2,td.prob3,td.prob4,td.img1,td.img2,td.img3,td.img4,td.img5,td.img6, td.updateDays, td.updateMins, td.infoSR, td.Severity1, td.Severity2, td.Severity3, td.Severity4, td.referSR
+{
+	background-repeat: no-repeat;
+	background-position: center center;
+    position:relative; /*this is the key*/
+    z-index:24;
+	
+	width: 17px;
+} /* padding: 2px 3px; */
+td.noDiscuss:hover, td.Discuss:hover, td.updateDays:hover, td.updateMins:hover, td.infoSR:hover, td.Severity1:hover, td.Severity2:hover, td.Severity3:hover, td.Severity4:hover, td.referSR
+{
+	z-index:25;
+}
+td span {
+	display:none;
+}
+
+td:hover span {
+    display:block;
+    position:absolute; top:80px; left:100px; width:150px;
+    border:1px solid #FFF;
+    background-color:#12378B; color:#FFF;
+    text-align: left;
+	/* outline radius for mozilla/firefox only */
+	-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;	
+}
+
+a:link, a:visited { color:black}
+a:hover {text-decoration:none}
+
+a.viewmore:link, a.viewmore:visited
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10px;
+	padding-left: 10px;
+	
+	font-size: 9pt;
+	font-weight:bold;
+	text-decoration: none;
+	color: white;
+	background-color: #12378B;
+	
+	text-align: center;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;	
+}
+
+a.viewmore:hover
+{
+background-color: #658AC3;
+}
+
+#footer{
+	clear: both;
+	height: 28px;
+	width: 100%;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: #658AC3;
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	bottom: 0px;
+	font-size: 9px;
+	font-weight: bold;
+	text-align:center;
+	font-family: Verdana, Geneva, Arial, sans-serif
+} 
+
+/* Jive Style ends */
+
+/*New Home */
+* {
+  margin: 0;
+  padding: 0
+}
+
+.container {
+  background-color: #12378B;
+  width: 380px;
+  border: 1px solid #000;
+}
+
+* html .container {
+  width: 383px;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid #000;
+}
+
+.header ul {
+  list-style: none
+}
+
+.header ul li {
+  width: 90px;
+  border-left: 1px solid #000;
+  float: left;
+  font-weight: bold;
+  padding-left: 2px;
+}
+
+* html .header ul li {
+  width: 93px;
+}
+
+.data {
+  width: 90px;
+  overflow:hidden;
+  text-overflow:ellipsis; 
+  white-space:nowrap;
+  float: left;
+  padding-left: 2px;
+}
+
+* html .data {
+  width: 93px;
+}
+
+.rowodd,.roweven {
+  position: relative;
+  width: 380px;
+  border-top: 1px solid #000;
+  background-color: #E8E8E8;
+}
+
+.roweven {
+  background-color: #D1DCE9;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+/*New Home Ends */
+
+/*Chrom Style - Top Menu */
+
+.chromestyle{
+width: 99%;
+font-weight: bold;
+}
+
+.chromestyle:after{ /*Add margin between menu and rest of content in Firefox*/
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+
+.chromestyle ul{
+border: 1px solid #BBB;
+width: 100%;
+background: url(../images/chromebg2.gif) center center repeat-x; /*THEME CHANGE HERE*/
+padding: 4px 0;
+margin: 0;
+text-align: center; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle ul li{
+display: inline;
+}
+
+.chromestyle ul li a{
+color: #494949;
+padding: 4px 7px;
+margin: 0;
+text-decoration: none;
+border-right: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+}
+
+.chromestyle ul li a:hover, .chromestyle ul li a.selected{ /*script dynamically adds a class of "selected" to the current active menu item*/
+background: url(../images/chromebg2-over.gif) center center repeat-x; /*THEME CHANGE HERE*/
+}
+
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+background-color: white;
+width: 200px;
+visibility: hidden;
+}
+
+.dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+font-weight: bold;
+color: black;
+}
+
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #EBF7FF;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheets/formulaire-css3.css" media="screen" title="bbxcss" />
+<title>My Opportunities - Home</title>
+</head>
+<body>
+
+<div id="LoginScreen" style="display:none">
+<form class="loginFormClass" id="loginForm" name="loginForm">
+	<h1>Login - Siebel</h1>
+	<p>
+		<label for="uname">Username</label>
+		<input id="uname" name="uname" type="text" />
+	</p>
+	<p>
+		<label for="pword">Password</label>
+		<input id="pword" name="pword" type="password" />
+	</p>
+	<p>
+		<a class="submit" id="loginSiebel">Login</a>
+	</p>
+	<div id="loginStatus">
+	</div>
+</form>
+</div>
+
+<div id="HomeView" style="display:none">
+
+	<div class="chromestyle" id="chromemenu">
+		<ul>
+			<li>Welcome, <a href="#" id ="myID" rel="dropmenu1"></a></li>
+		</ul>
+	</div>
+													  
+	<div id="dropmenu1" class="dropmenudiv">
+		<a href="" id="changePref">Change Preferences</a>
+		<a href="" id="logOut">Logout</a>
+	</div>
+
+	<table id="xmlTable" class="data-grid">
+	<thead>
+	  <tr>
+		<th>Opportunity Name</th>
+		<th>Account</th>
+		<th colspan="7" style="padding:8px 115px 8px 8px;">Info</th>
+	   </tr>
+	</thead>
+	<tbody id="TableBody">
+	  <!-- Placeholder for the fetched records to be displayed -->
+	</tbody>
+	</table>
+	
+</div>
+
+<table class="crud" id="ReferPage" width="90%" style="display:none">
+	<thead>
+	  <tr>
+		<th colspan="2">Refer Opportunity to a Colleague</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<tr><td>To</td><td> <select id="referList"></select></td></tr>
+		<tr><td>Subject</td><td><input type="text" id="referSub"/></td></tr>
+		<tr><td>Message</td><td><textarea id="referMsg" rows="5"></textarea></td></tr>
+		<tr><td class="button_row" colspan="2"><button id="postMsg">Post Message</button><span>  </span><button id="cancelMsg">Cancel</button>
+		</td>
+		</tr>
+	</tbody>
+</table>
+
+<footer id="footer">&copy; Accenture 2011</footer> 
+
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.xml2json.js"></script>
+  <script type="text/javascript" src="javascripts/chrome.js"></script>
+  <script type="text/javascript" src="javascripts/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module specificationVersion="1">
+  <ModulePrefs title="My Siebel Opportunities"
+               description="Siebel Opportunities in Jive."
+               author="Pradeep"
+               author_affiliation="Accenture"
+               author_email="Pradeep.Tammineni@accenture.com">
+    <!-- Commonly used features -->
+    <Require feature="dynamic-height" />	
+    <Require feature="jive-core-v2" />
+    <Require feature="jquery-1.6" />
+	<Require feature="opensocial-1.0"/>
+    <Require feature="jive-connects-v1">
+            <Param name="alias:accenture|title:Accenture Service">jive:service//oracle.com/siebel/api?version=1</Param>
+    </Require>
+    <Require feature="osapi"/>
+    <Require feature="settitle"/>
+    <Require feature="views" />
+	<Require feature="minimessage"/>
+	
+	<!-- For setting preferences from app-->
+	<Require feature="setprefs"/>
+	<!-- End -->
+	
+	<!-- Added for maximizing the height of canvas -->
+    <Require feature="dynamic-height" />
+    <Require feature="jive-canvas-v1"/> 
+	<!-- End -->
+	
+    <!-- Icons: 3 sizes, 16x16, 48x48, 128x128 -->
+    <Link rel="Icon"       href="images/icon16.png" />
+    <Link rel="MediumIcon" href="images/icon48.png" />
+    <Link rel="LargeIcon"  href="images/icon128.png" />
+
+  </ModulePrefs>
+  
+  <!-- For setting preferences from app-->
+  <UserPref name="UserName" display_name="Siebel Account Username" datatype="string" default_value="" required="false" />
+  <UserPref name="Password" display_name="Siebel Account Password (Encrypted)" datatype="string" default_value="" required="false" />
+  <!-- End -->
+  
+  <Content type="html" view="home" href="home.html" preferred_height="400" />
+  <Content type="html" view="canvas" href="canvas.html" preferred_height="900"/>
+  
+</Module>
